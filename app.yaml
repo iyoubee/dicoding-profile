@@ -1,0 +1,16 @@
+runtime: nodejs20
+entrypoint: npm run start
+env_variables:
+  NODE_ENV: 'production'
+
+# Pengaturan layanan dan jalur
+handlers:
+  - url: /_next/static
+    static_dir: .next/static
+  - url: /_next/
+    static_files: .next/static_files/_next/
+    upload: .next/static_files/_next/.*$
+  - url: /static
+    static_dir: public
+  - url: /.*
+    script: auto
